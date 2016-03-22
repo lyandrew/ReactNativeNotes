@@ -3,6 +3,7 @@ import React, {
   TextInput,
   View
 } from 'react-native';
+import Dimensions from 'Dimensions';
 
 export default class NoteScreen extends React.Component {
   constructor (props) {
@@ -29,7 +30,7 @@ export default class NoteScreen extends React.Component {
             onChangeText={ (title) => this.updateNote(title, this.state.body, this.state.id)}
           />
         </View>
-        <View style={[styles.inputContainer, {height: 300}]}>
+        <View style={[styles.inputContainer, {height: Dimensions.get('window').height-136}]}>
           <TextInput
             ref="body"
             multiline={true}
@@ -60,7 +61,6 @@ const styles = StyleSheet.create({
     flex: 1
   },
   inputContainer: {
-  //  backgroundColor: 'red',
     borderBottomColor: '#9E7CE3',
     borderBottomWidth: 1,
     flexDirection: 'column',

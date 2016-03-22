@@ -1,7 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- */
 'use strict';
 import React, {
   AppRegistry,
@@ -40,7 +36,6 @@ var NavigationBarRouteMapper = {
         return (
           <SimpleButton
             onPress={() => {
-
               navigator.push({
                 name: 'createNote',
                 note: {
@@ -118,12 +113,22 @@ class ReactNotes extends Component {
     newNotes[note.id] = note;
     this.setState({notes:newNotes});
     this.saveNotes(newNotes);
+    this.setState({selectedNote:{
+      id: new Date().getTime(),
+      title: '',
+      body: ''
+    }})
   }
   deleteNote(note) {
     var newNotes = Object.assign({}, this.state.notes);
     delete newNotes[note.id];
     this.setState({notes:newNotes});
     this.saveNotes(newNotes);
+    this.setState({selectedNote:{
+      id: new Date().getTime(),
+      title: '',
+      body: ''
+    }})
   }
   async loadNotes() {
      try {

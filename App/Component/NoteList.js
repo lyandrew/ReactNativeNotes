@@ -14,6 +14,8 @@ export default class NoteList extends React.Component {
   render() {
     return (
       <ListView
+        style={styles.listView}
+        contentContainerStyle={ styles.listContent }
         dataSource={this.ds.cloneWithRows(this.props.notes)}
         renderRow={
           (rowData) => {
@@ -36,5 +38,13 @@ var styles = StyleSheet.create({
   },
   rowText: {
     fontWeight: '600'
+  },
+  listView: {
+    flex: 1,
+    alignSelf: 'stretch',
+    flexDirection: 'column',
+  },
+  listContent: {
+    alignItems: 'center'
   }
 });

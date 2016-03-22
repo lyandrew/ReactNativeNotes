@@ -16,16 +16,6 @@ export default class HomeScreen extends React.Component {
           notes={this.props.notes}
           onSelectNote={this.props.onSelectNote}
         />
-        <Text style={styles.noNotesText}>You haven't created any notes!</Text>
-
-        <SimpleButton
-          onPress={() => this.props.navigator.push({
-            name: 'createNote'
-          })}
-          customText="Create Note"
-          style={styles.simpleButton}
-          textStyle={styles.simpleButtonText}
-        />
       </View>
     );
   }
